@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-negro font-cuerpo text-texto-base antialiased;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.18;
+    background-image:
+      radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.06), transparent 18%),
+      radial-gradient(circle at 80% 10%, rgba(204, 0, 0, 0.12), transparent 18%);
+    z-index: 0;
+  }
+
+  #root {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  .section-shell {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-title {
+    @apply font-titulo text-4xl uppercase tracking-[0.2em] text-texto-base sm:text-5xl;
+  }
+
+  .section-divider {
+    @apply mt-3 h-0.5 w-24 bg-rojo;
+  }
+
+  .luxury-card {
+    @apply rounded-2xl border border-negro-borde bg-negro-card transition-all duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-rojo/20;
+  }
+
+  .input-base {
+    @apply w-full rounded border border-negro-borde bg-negro-card px-4 py-3 text-texto-base placeholder-texto-gris transition-colors duration-200 focus:border-rojo focus:outline-none;
+  }
+}
